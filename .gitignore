@@ -1,0 +1,73 @@
+# ========================================
+# CIRCLE BLOG - GIT IGNORE FILE
+# ========================================
+# 
+# This file tells Git which files/folders to IGNORE
+# and NOT upload to GitHub.
+# 
+# WHY? To protect:
+# - Sensitive information (passwords, API keys)
+# - User uploaded content
+# - System files
+# ========================================
+
+# -----------------
+# SENSITIVE FILES
+# -----------------
+# Never upload environment configuration
+.env
+.env.local
+.env.production
+
+# Configuration files with credentials
+config/db.php.backup
+
+# -----------------
+# USER UPLOADS
+# -----------------
+# Don't upload user-generated content to GitHub
+# (You'll upload these separately to your hosting server)
+uploads/*
+!uploads/.htaccess
+!uploads/README.md
+
+# -----------------
+# SYSTEM FILES
+# -----------------
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# -----------------
+# TEMPORARY FILES
+# -----------------
+# PHP temporary files
+*.log
+*.tmp
+debug.txt
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# -----------------
+# DEPENDENCIES (if you add Composer later)
+# -----------------
+/vendor/
+composer.phar
+composer.lock
+
+# -----------------
+# BUILD FILES
+# -----------------
+node_modules/
+package-lock.json
+yarn.lock

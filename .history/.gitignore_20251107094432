@@ -1,0 +1,53 @@
+# ========================================
+# CIRCLE BLOG - GIT IGNORE FILE
+# ========================================
+
+# -----------------
+# SENSITIVE FILES
+# -----------------
+.env
+.env.local
+.env.production
+config/db.php.backup
+
+# -----------------
+# USER UPLOADS
+# -----------------
+uploads/*
+!uploads/.htaccess
+!uploads/README.md
+
+# -----------------
+# SYSTEM FILES
+# -----------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -----------------
+# EDITOR/IDE FILES
+# -----------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# -----------------
+# TEMPORARY FILES
+# -----------------
+*.log
+*.tmp
+debug.txt
+
+# -----------------
+# BACKUP FILES
+# -----------------
+*.bak
+*.backup
+*~
+backup_old_files/
+
+# -----------------
+# REORGANIZATION SCRIPT
+# -----------------
+reorganize.php

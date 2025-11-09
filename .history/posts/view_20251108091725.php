@@ -1,0 +1,982 @@
+/**
+ * ========================================
+ * CIRCLE BLOG - MAIN STYLESHEET
+ * ========================================
+ * 
+ * TABLE OF CONTENTS:
+ * 1. Root Variables & Reset
+ * 2. Header & Navigation
+ * 3. Hero Section
+ * 4. Blog Cards & Grid
+ * 5. Single Post View
+ * 6. Forms
+ * 7. Modal
+ * 8. Flash Messages
+ * 9. Tables
+ * 10. Buttons
+ * 11. Responsive Design
+ * ========================================
+ */
+
+/* ========================================
+   1. ROOT VARIABLES & RESET
+   ======================================== */
+:root {
+  --main-color: #000000;
+  --text-color: #ffffff;
+  --hover-color: #3b82f6;
+  --bg-color: #f5f5f5;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --warning-color: #f59e0b;
+  --spacing: 1rem;
+  --transition-speed: 0.3s;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: #333;
+  line-height: 1.6;
+  padding-top: 70px; /* Account for fixed header */
+}
+
+/* ========================================
+   2. HEADER & NAVIGATION
+   ======================================== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  box-shadow: var(--shadow);
+}
+
+header a.logo img {
+  width: 40px;
+  height: auto;
+  filter: invert(1); /* Make logo white */
+}
+
+.blog-name-circle {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.icons {
+  display: flex;
+  gap: 15px;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.icons i:hover {
+  color: var(--hover-color);
+}
+
+/* Desktop Navigation */
+.navbar {
+  display: flex;
+  gap: var(--spacing);
+}
+
+.navbar li a,
+.navbar li span {
+  color: var(--text-color);
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color var(--transition-speed);
+  border-radius: 5px;
+  display: block;
+}
+
+.navbar li a:hover {
+  background-color: var(--hover-color);
+}
+
+/* Mobile Menu Icon */
+#menu-icon {
+  display: none;
+}
+
+/* ========================================
+   3. SEARCH BOX
+   ======================================== */
+.search-box {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  z-index: 999;
+  display: none;
+}
+
+.search-box.active {
+  display: block;
+}
+
+.search-box form {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-box input[type="search"] {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px 0 0 6px;
+  outline: none;
+}
+
+.search-box button {
+  padding: 0 20px;
+  background-color: var(--hover-color);
+  border: none;
+  border-radius: 0 6px 6px 0;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: opacity var(--transition-speed);
+}
+
+.search-box button:hover {
+  opacity: 0.9;
+}
+
+/* ========================================
+   4. HERO SECTION
+   ======================================== */
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.cta-btn {
+  padding: 12px 30px;
+  background-color: white;
+  color: #667eea;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform var(--transition-speed);
+}
+
+.cta-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ========================================
+   5. BLOG CARDS & GRID
+   ======================================== */
+.featured-blogs {
+  padding: 60px 20px;
+  background-color: #f0f8ff;
+}
+
+.featured-blogs h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #004d40;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog-card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.blog-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.blog-card p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.post-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.read-more {
+  display: inline-block;
+  color: var(--hover-color);
+  font-weight: bold;
+  transition: color var(--transition-speed);
+}
+
+.read-more:hover {
+  color: #2563eb;
+}
+
+.no-posts {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+/* ========================================
+   6. SINGLE POST VIEW
+   ======================================== */
+.post-single {
+  padding: 40px 20px;
+  background-color: white;
+  margin-top: 20px; /* Add space below header */
+}
+
+.post-single .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.post-header {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.post-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.post-header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.post-image {
+  margin: 30px 0;
+}
+
+.post-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.post-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 40px;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.post-engagement {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 30px;
+}
+
+.like-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 2px solid var(--border-color);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  font-size: 1rem;
+}
+
+.like-btn:hover:not(:disabled) {
+  background-color: #ffe0e0;
+  border-color: #ff6b6b;
+}
+
+.like-btn.liked {
+  background-color: #ffe0e0;
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+
+.like-btn i {
+  font-size: 1.3rem;
+}
+
+.like-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ========================================
+   7. COMMENTS SECTION
+   ======================================== */
+.comments-section {
+  margin-top: 50px;
+}
+
+.comments-section h2 {
+  margin-bottom: 20px;
+}
+
+.comment-form {
+  margin-bottom: 30px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.comment {
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border-left: 3px solid var(--hover-color);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-date {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.comment-content {
+  color: #555;
+  line-height: 1.6;
+}
+
+.no-comments {
+  text-align: center;
+  color: #999;
+  padding: 40px 0;
+}
+
+/* ========================================
+   8. FORMS
+   ======================================== */
+.create-post-section {
+  padding: 40px 20px;
+  background-color: white;
+}
+
+.create-post-section .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.create-post-section h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+}
+
+.required {
+  color: var(--error-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color var(--transition-speed);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--hover-color);
+}
+
+.form-group small {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.form-group input[type="file"] {
+  padding: 10px;
+  border: 2px dashed var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.current-image {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.current-image img {
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* ========================================
+   9. BUTTONS
+   ======================================== */
+.btn-primary,
+.btn-secondary,
+.btn-edit,
+.btn-delete {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background-color: var(--hover-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #6b7280;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #4b5563;
+}
+
+.btn-edit {
+  background-color: #10b981;
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #059669;
+}
+
+.btn-delete,
+.btn-delete-small {
+  background-color: var(--error-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.btn-delete:hover,
+.btn-delete-small:hover {
+  background-color: #dc2626;
+}
+
+.btn-delete-small {
+  padding: 5px 10px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+}
+
+.btn-icon {
+  padding: 8px;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-icon:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.1);
+}
+
+.btn-icon.btn-delete:hover {
+  background-color: #fee2e2;
+  border-color: var(--error-color);
+  color: var(--error-color);
+}
+
+/* ========================================
+   10. MODAL
+   ======================================== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 450px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  color: #999;
+  cursor: pointer;
+  transition: color var(--transition-speed);
+}
+
+.modal .close:hover {
+  color: #333;
+}
+
+#modalTitle {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+#authForm input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+#authForm button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--hover-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+  margin-top: 10px;
+}
+
+#authForm button:hover {
+  background-color: #2563eb;
+}
+
+.toggle-link {
+  text-align: center;
+  margin-top: 15px;
+  color: #666;
+}
+
+.toggle-link a {
+  color: var(--hover-color);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.toggle-link a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   11. FLASH MESSAGES
+   ======================================== */
+.flash-message {
+  padding: 15px 20px;
+  margin: 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+  animation: slideDown 0.3s ease-out;
+  position: relative;
+  z-index: 100; /* Keep flash messages on top but below modal */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flash-success {
+  background-color: #d1fae5;
+  color: #065f46;
+  border-left: 4px solid var(--success-color);
+}
+
+.flash-error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-left: 4px solid var(--error-color);
+}
+
+.flash-warning {
+  background-color: #fef3c7;
+  color: #92400e;
+  border-left: 4px solid var(--warning-color);
+}
+
+.flash-info {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border-left: 4px solid var(--hover-color);
+}
+
+/* ========================================
+   12. TABLES (My Posts)
+   ======================================== */
+.my-posts-section {
+  padding: 40px 20px;
+}
+
+.my-posts-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.posts-table {
+  overflow-x: auto;
+}
+
+.posts-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.posts-table th,
+.posts-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.posts-table th {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+}
+
+.posts-table tr:hover {
+  background-color: #f9fafb;
+}
+
+.post-title-cell {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.post-thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.post-link {
+  font-weight: 600;
+  color: #333;
+  transition: color var(--transition-speed);
+}
+
+.post-link:hover {
+  color: var(--hover-color);
+}
+
+.post-excerpt {
+  display: block;
+  color: #666;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.date-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.date-info .updated {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.post-stats {
+  display: flex;
+  gap: 15px;
+  font-size: 0.9rem;
+}
+
+.post-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.empty-state h2 {
+  margin: 20px 0;
+  color: #666;
+}
+
+.empty-state p {
+  color: #999;
+  margin-bottom: 30px;
+}
+
+/* ========================================
+   13. RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+  /* Mobile Navigation */
+  #menu-icon {
+    display: block;
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: var(--main-color);
+    padding: 20px;
+    box-shadow: var(--shadow);
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  /* Hero */
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  /* Post Header - Mobile Fix */
+  .post-header h1 {
+    font-size: 1.8rem;
+    padding-right: 0; /* Remove padding on mobile */
+  }
+
+  .post-actions {
+    position: static; /* Don't float on mobile */
+    margin-top: 15px;
+    justify-content: center;
+  }
+
+  /* Blog Grid */
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Forms */
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn-primary,
+  .form-actions .btn-secondary {
+    width: 100%;
+  }
+
+  /* Tables */
+  .posts-table {
+    font-size: 0.85rem;
+  }
+
+  .post-title-cell {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .section-header .btn-primary {
+    width: 100%;
+  }
+}
