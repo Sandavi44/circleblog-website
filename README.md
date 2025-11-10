@@ -365,8 +365,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Your Name**
 
-* GitHub: [@yourusername](https://github.com/yourusername)
-* Email: [your.email@example.com](mailto:info@circleblog.com)
+* GitHub: [@sandavi44](https://github.com/sandavi44)
+* Email: [info@circleblog.com](mailto:info@circleblog.com)
 
 ---
 
@@ -413,5 +413,6 @@ If you encounter any issues:
 1. Check the [Issues](https://github.com/Sandavi44/circleblog-website/issues) page
 2. Create a new issue with a detailed description
 3. Contact: [info@circleblog.com](mailto:info@circleblog.com)
+
 
 
